@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  <title>Basic Vue Js - HelloWorld App</title>
+</head>
+
+<body class="bg-gray-300 w-full">
+  <div id="app" class="flex items-center justify-center h-screen">
+    <div class="bg-white w-2/4 p-10">
+      <div>
+        <div class="top flex justify-between my-7">
+          <div class="flex flex-col">
+            <h1 class="font-bold text-3xl">{{ nickname }}</h1>
+            <h1 class="font-bold text-3xl">{{ name }}</h1>
+            <h2 class="text-lg opacity-40">{{ career }}</h2>
+          </div>
+          <img :src="img" class="w-1/4"> 
+        </div>
+        <div class="bot flex justify-between text-center text-lg">
+          <div class="flex flex-col">
+            <h3 class="text-xl font-semibold">Followers</h3>
+            <p>{{ followers }}</p>
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-xl font-semibold">Following</h3>
+            <p>{{ following }}</p>
+          </div>
+          <div class="flex flex-col">
+            <h3 class="text-xl font-semibold">Groups</h3>
+            <p>{{ groups }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-7">
+        <h1 class="text-2xl">Form Validation</h1>
+        <div class="flex">
+          <div class="flex flex-col  w-2/4">
+          <form @submit="handleSubmit">
+            <div class="flex my-2">
+              <label for="username" class="w-1/4">Username:</label>
+              <input type="text" id="username" name="username" v-model="username" class="border-2">
+            </div>
+            <div class="flex my-2">
+              <label for="email" class="w-1/4">Email:</label>
+              <input type="email" id="email" name="email" v-model="email" class="border-2">
+            </div>
+            <div class="flex my-2">
+              <label for="password" class="w-1/4">Password:</label>
+              <input type="password" id="password" name="password" v-model="password" class="border-2">
+            </div>
+            <div class="flex my-2">
+              <label for="password" class="w-1/4">Language:</label>
+              <select name="language" id="language" class="border-2" v-model="language">
+                <option value="english" selected>English</option> 
+                <option value="thai">Thai</option>
+              </select>
+            </div>
+            <input type="submit" class="cursor-pointer p-2 bg-blue-500 text-white rounded">
+          </form>
+          </div>
+          <div v-if="errors">
+            <h1 class="text-lg text-red font-bold">Please insert information following this:</h1>
+            <ul v-for="error in errors">
+              <li class="text-red-500">{{ error[0] }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- my main.js -->
+  <script src="./profile.js">   </script>
+</body>
+
+</html>
